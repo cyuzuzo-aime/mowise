@@ -1,0 +1,459 @@
+{
+  "users": [
+    {
+      "user_id": 1,
+      "user_name": "Mordecai Nayituriki",
+      "email": "mordecai@gmail.com",
+      "balance": 102000,
+      "phone_number": "+250720123456",
+      "password": "hashed_password_1",
+      "created_at": "2024-01-15T10:30:00.000Z",
+      "updated_at": "2024-01-15T14:45:30.000Z"
+    },
+    {
+      "user_id": 2,
+      "user_name": "Jean Philippe Niyitegeka",
+      "email": "niyitegeka@gmail.com",
+      "balance": 95000,
+      "phone_number": "+250790987654",
+      "password": "hashed_password_2",
+      "created_at": "2024-01-15T11:00:00.000Z",
+      "updated_at": "2024-01-15T15:20:15.000Z"
+    },
+    {
+      "user_id": 3,
+      "user_name": "Aime Cyuzuzo",
+      "email": "cyuzuzo@gmail.com",
+      "balance": 148500,
+      "phone_number": "+250783650846",
+      "password": "hashed_password_3",
+      "created_at": "2024-01-15T11:30:00.000Z",
+      "updated_at": "2024-01-15T16:10:45.000Z"
+    },
+    {
+      "user_id": 4,
+      "user_name": "Lionel Karekezi",
+      "email": "karekezi@gmail.com",
+      "balance": 149000,
+      "phone_number": "+250780987654",
+      "password": "hashed_password_4",
+      "created_at": "2024-01-15T12:00:00.000Z",
+      "updated_at": "2024-01-15T17:00:00.000Z"
+    },
+    {
+      "user_id": 5,
+      "user_name": "Wakuma",
+      "email": "wakuma@gmail.com",
+      "balance": 5000,
+      "phone_number": "+250790987656",
+      "password": "hashed_password_5",
+      "created_at": "2024-01-15T12:30:00.000Z",
+      "updated_at": "2024-01-15T18:15:30.000Z"
+    }
+  ],
+
+  "transaction_categories": [
+    {
+      "id": 1,
+      "name": "Send Money",
+      "description": "Transfer money to another user"
+    },
+    {
+      "id": 2,
+      "name": "Electricity Bill",
+      "description": "Utility and service bill payments"
+    },
+    {
+      "id": 3,
+      "name": "Airtime Purchase",
+      "description": "Mobile airtime top-up"
+    },
+    {
+      "id": 4,
+      "name": "Data Bundle",
+      "description": "Internet data bundle purchase"
+    },
+    {
+      "id": 5,
+      "name": "Merchant Payment",
+      "description": "Payment to registered merchants"
+    },
+    {
+      "id": 6,
+      "name": "Bank Transfer",
+      "description": "Transfer to bank account"
+    },
+    {
+      "id": 7,
+      "name": "Deposit",
+      "description": "Deposit cash to wallet"
+    },
+    {
+      "id": 8,
+      "name": "Withdrawal",
+      "description": "Withdraw cash from wallet"
+    }
+  ],
+
+  "people": [
+    {
+      "person_id": 1,
+      "names": "Mordecai Nayituriki",
+      "phone_number": "+250720123456",
+      "created_at": "2024-01-15T09:00:00.000Z",
+      "user_id": 2
+    },
+    {
+      "person_id": 2,
+      "names": "Alice Uwase",
+      "phone_number": "+250788123456",
+      "created_at": "2024-01-15T09:05:00.000Z",
+      "user_id": 2
+    },
+    {
+      "person_id": 3,
+      "names": "Jean Philippe Niyitegeka",
+      "phone_number": "+250790987654",
+      "created_at": "2024-01-15T09:10:00.000Z",
+      "user_id": 1
+    },
+    {
+      "person_id": 4,
+      "names": "Alice Mukamana",
+      "phone_number": "+250789654321",
+      "created_at": "2024-01-15T09:15:00.000Z",
+      "user_id": 1
+    },
+    {
+      "person_id": 5,
+      "names": "Aime Cyuzuzo",
+      "phone_number": "+250783650846",
+      "created_at": "2024-01-15T09:20:00.000Z",
+      "user_id": 3
+    },
+    {
+      "person_id": 6,
+      "names": "Ngoga Ndoli",
+      "phone_number": "+250782345678",
+      "created_at": "2024-01-15T09:25:00.000Z",
+      "user_id": 3
+    },
+    {
+      "person_id": 7,
+      "names": "Lionel Karekezi",
+      "phone_number": "+250780987654",
+      "created_at": "2024-01-15T09:30:00.000Z",
+      "user_id": 4
+    },
+    {
+      "person_id": 8,
+      "names": "Diane Uwera",
+      "phone_number": "+250781234567",
+      "created_at": "2024-01-15T09:35:00.000Z",
+      "user_id": 4
+    },
+    {
+      "person_id": 9,
+      "names": "Wakuma",
+      "phone_number": "+250790987656",
+      "created_at": "2024-01-15T09:40:00.000Z",
+      "user_id": 5
+    },
+    {
+      "person_id": 10,
+      "names": "Eve Sogokuru",
+      "phone_number": "+250785678901",
+      "created_at": "2024-01-15T09:45:00.000Z",
+      "user_id": 5
+    }
+  ],
+
+  "transactions": [
+    {
+      "transaction_id": 1,
+      "currency": "RWF",
+      "rawMessage": "Sent 1000 RWF to +250720123456",
+      "status": "completed",
+      "amount": 1000.00,
+      "new_balance": 49000,
+      "category_id": 1,
+      "person_id": 1,
+      "user_id": 2,
+      "sent": true,
+      "created_at": "2024-01-15T13:00:00.000Z",
+      "updated_at": "2024-01-15T13:00:00.000Z"
+    },
+    {
+      "transaction_id": 2,
+      "currency": "RWF",
+      "rawMessage": "Received 2000 RWF from +250790987654",
+      "status": "completed",
+      "amount": 2000.00,
+      "new_balance": 102000,
+      "category_id": 1,
+      "person_id": 3,
+      "user_id": 1,
+      "sent": false,
+      "created_at": "2024-01-15T13:15:00.000Z",
+      "updated_at": "2024-01-15T13:15:00.000Z"
+    },
+    {
+      "transaction_id": 3,
+      "currency": "RWF",
+      "rawMessage": "Paid 5000 RWF for Electricity Bill to +250788123456",
+      "status": "completed",
+      "amount": 5000.00,
+      "new_balance": 95000,
+      "category_id": 2,
+      "person_id": 2,
+      "user_id": 2,
+      "sent": true,
+      "created_at": "2024-01-15T13:30:00.000Z",
+      "updated_at": "2024-01-15T13:30:00.000Z"
+    },
+    {
+      "transaction_id": 4,
+      "currency": "RWF",
+      "rawMessage": "Bought Airtime of 3000 RWF for +250789654321",
+      "status": "completed",
+      "amount": 3000.00,
+      "new_balance": 97000,
+      "category_id": 3,
+      "person_id": 4,
+      "user_id": 1,
+      "sent": true,
+      "created_at": "2024-01-15T13:45:00.000Z",
+      "updated_at": "2024-01-15T13:45:00.000Z"
+    },
+    {
+      "transaction_id": 5,
+      "currency": "RWF",
+      "rawMessage": "Sent 1500 RWF to +250783650846",
+      "status": "completed",
+      "amount": 1500.00,
+      "new_balance": 148500,
+      "category_id": 1,
+      "person_id": 5,
+      "user_id": 3,
+      "sent": true,
+      "created_at": "2024-01-15T14:00:00.000Z",
+      "updated_at": "2024-01-15T14:00:00.000Z"
+    },
+    {
+      "transaction_id": 6,
+      "currency": "RWF",
+      "rawMessage": "Received 2500 RWF from +250781234567",
+      "status": "completed",
+      "amount": 2500.00,
+      "new_balance": 149000,
+      "category_id": 1,
+      "person_id": 8,
+      "user_id": 4,
+      "sent": false,
+      "created_at": "2024-01-15T14:15:00.000Z",
+      "updated_at": "2024-01-15T14:15:00.000Z"
+    },
+    {
+      "transaction_id": 7,
+      "currency": "RWF",
+      "rawMessage": "Withdrew 2000 RWF",
+      "status": "completed",
+      "amount": 2000.00,
+      "new_balance": 146000,
+      "category_id": 8,
+      "person_id": null,
+      "user_id": 4,
+      "sent": true,
+      "created_at": "2024-01-15T14:30:00.000Z",
+      "updated_at": "2024-01-15T14:30:00.000Z"
+    },
+    {
+      "transaction_id": 8,
+      "currency": "RWF",
+      "rawMessage": "Deposited 5000 RWF",
+      "status": "completed",
+      "amount": 5000.00,
+      "new_balance": 5000,
+      "category_id": 7,
+      "person_id": null,
+      "user_id": 5,
+      "sent": false,
+      "created_at": "2024-01-15T14:45:00.000Z",
+      "updated_at": "2024-01-15T14:45:00.000Z"
+    }
+  ],
+
+  "system_logs": [
+    {
+      "log_id": 1,
+      "timestamp": "2024-01-15T13:00:00.000Z",
+      "type": "update_balance",
+      "status": "success",
+      "transaction_id": 1,
+      "user_id": 2
+    },
+    {
+      "log_id": 2,
+      "timestamp": "2024-01-15T13:15:00.000Z",
+      "type": "update_balance",
+      "status": "success",
+      "transaction_id": 2,
+      "user_id": 1
+    },
+    {
+      "log_id": 3,
+      "timestamp": "2024-01-15T13:30:00.000Z",
+      "type": "update_balance",
+      "status": "success",
+      "transaction_id": 3,
+      "user_id": 2
+    },
+    {
+      "log_id": 4,
+      "timestamp": "2024-01-15T13:45:00.000Z",
+      "type": "update_balance",
+      "status": "success",
+      "transaction_id": 4,
+      "user_id": 1
+    },
+    {
+      "log_id": 5,
+      "timestamp": "2024-01-15T14:00:00.000Z",
+      "type": "update_balance",
+      "status": "success",
+      "transaction_id": 5,
+      "user_id": 3
+    },
+    {
+      "log_id": 6,
+      "timestamp": "2024-01-15T14:15:00.000Z",
+      "type": "update_balance",
+      "status": "success",
+      "transaction_id": 6,
+      "user_id": 4
+    },
+    {
+      "log_id": 7,
+      "timestamp": "2024-01-15T14:30:00.000Z",
+      "type": "update_balance",
+      "status": "success",
+      "transaction_id": 7,
+      "user_id": 4
+    },
+    {
+      "log_id": 8,
+      "timestamp": "2024-01-15T14:45:00.000Z",
+      "type": "update_balance",
+      "status": "success",
+      "transaction_id": 8,
+      "user_id": 5
+    },
+    {
+      "log_id": 9,
+      "timestamp": "2024-01-15T13:00:00.000Z",
+      "type": "transaction_record",
+      "status": "success",
+      "transaction_id": 1,
+      "user_id": 2
+    },
+    {
+      "log_id": 10,
+      "timestamp": "2024-01-15T13:15:00.000Z",
+      "type": "transaction_record",
+      "status": "success",
+      "transaction_id": 2,
+      "user_id": 2
+    },
+    {
+      "log_id": 11,
+      "timestamp": "2024-01-15T13:30:00.000Z",
+      "type": "transaction_record",
+      "status": "success",
+      "transaction_id": 3,
+      "user_id": 2
+    },
+    {
+      "log_id": 12,
+      "timestamp": "2024-01-15T13:45:00.000Z",
+      "type": "transaction_record",
+      "status": "success",
+      "transaction_id": 4,
+      "user_id": 2
+    },
+    {
+      "log_id": 13,
+      "timestamp": "2024-01-15T14:00:00.000Z",
+      "type": "transaction_record",
+      "status": "success",
+      "transaction_id": 5,
+      "user_id": 2
+    }
+  ],
+
+  "user_category_junction": [
+    {
+      "id": 1,
+      "user_id": 2,
+      "category_id": 1,
+      "frequency_count": 1,
+      "total_amount": 1000,
+      "last_used_date": "2024-01-15T13:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "user_id": 1,
+      "category_id": 1,
+      "frequency_count": 1,
+      "total_amount": 2000,
+      "last_used_date": "2024-01-15T13:15:00.000Z"
+    },
+    {
+      "id": 3,
+      "user_id": 2,
+      "category_id": 2,
+      "frequency_count": 1,
+      "total_amount": 5000,
+      "last_used_date": "2024-01-15T13:30:00.000Z"
+    },
+    {
+      "id": 4,
+      "user_id": 1,
+      "category_id": 3,
+      "frequency_count": 1,
+      "total_amount": 3000,
+      "last_used_date": "2024-01-15T13:45:00.000Z"
+    },
+    {
+      "id": 5,
+      "user_id": 3,
+      "category_id": 1,
+      "frequency_count": 1,
+      "total_amount": 1500,
+      "last_used_date": "2024-01-15T14:00:00.000Z"
+    },
+    {
+      "id": 6,
+      "user_id": 4,
+      "category_id": 1,
+      "frequency_count": 1,
+      "total_amount": 2500,
+      "last_used_date": "2024-01-15T14:15:00.000Z"
+    },
+    {
+      "id": 7,
+      "user_id": 4,
+      "category_id": 8,
+      "frequency_count": 1,
+      "total_amount": 2000,
+      "last_used_date": "2024-01-15T14:30:00.000Z"
+    },
+    {
+      "id": 8,
+      "user_id": 5,
+      "category_id": 7,
+      "frequency_count": 1,
+      "total_amount": 5000,
+      "last_used_date": "2024-01-15T14:45:00.000Z"
+    }
+  ]
+}

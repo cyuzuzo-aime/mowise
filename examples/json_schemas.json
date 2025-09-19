@@ -1,0 +1,230 @@
+[
+    {
+    "categories": [
+        {
+        "id": 1,
+        "name": "Send Money",
+        "description": "Transfer money to another user",
+        "icon": "send-money",
+        "color": "#4CAF50",
+        "usage_stats": {
+            "frequency_count": 5,
+            "total_amount": 12500.00,
+            "percentage_of_transactions": 45.2,
+            "last_used": "2024-01-15T14:15:00Z",
+            "average_amount": 2500.00
+        },
+        "recent_transactions": [
+            {
+            "transaction_id": 6,
+            "amount": 2500.00,
+            "counterparty": "Diane Uwera",
+            "timestamp": "2024-01-15T14:15:00Z"
+            }
+        ]
+        }
+    ],
+    "summary": {
+        "most_used_category": "Send Money",
+        "highest_spend_category": "Electricity Bill",
+        "total_categories_used": 6
+    }
+    },
+    {
+    "contacts": [
+        {
+        "person_id": 3,
+        "name": "Jean Philippe Niyitegeka",
+        "phone_number": "+250790987654",
+        "added_at": "2024-01-15T09:10:00Z",
+        "is_favorite": true,
+        "relationship_stats": {
+            "total_transactions": 3,
+            "total_sent": 5000.00,
+            "total_received": 2000.00,
+            "net_balance": -3000.00,
+            "last_interaction": "2024-01-15T13:45:00Z"
+        },
+        "transaction_history": [
+            {
+            "transaction_id": 2,
+            "type": "received",
+            "amount": 2000.00,
+            "timestamp": "2024-01-15T13:15:00Z",
+            "status": "completed"
+            },
+            {
+            "transaction_id": 4,
+            "type": "sent",
+            "amount": 3000.00,
+            "category": "Airtime Purchase",
+            "timestamp": "2024-01-15T13:45:00Z",
+            "status": "completed"
+            }
+        ]
+        }
+    ],
+    "summary": {
+        "total_contacts": 2,
+        "active_contacts": 2,
+        "favorite_contacts": 1
+    }
+    },
+    {
+        "user_id": 1,
+        "user_name": "Mordecai Nayituriki",
+        "email": "mordecai@gmail.com",
+        "phone_number": "+250720123456",
+        "balance": {
+            "amount": 102000,
+            "currency": "RWF",
+            "formatted": "102,000 RWF"
+        },
+        "account_info": {
+            "created_at": "2024-01-15T10:30:00Z",
+            "last_activity": "2024-01-15T14:45:30Z",
+            "status": "active"
+        },
+        "recent_transactions": [
+            {
+                "transaction_id": 2,
+                "type": "received",
+                "amount": 2000.00,
+                "currency": "RWF",
+                "description": "Received 2000 RWF from Jean Philippe",
+                "timestamp": "2024-01-15T13:15:00Z",
+                "status": "completed"
+            }
+        ],
+        "favorite_contacts": [
+            {
+                "person_id": 3,
+                "name": "Jean Philippe Niyitegeka",
+                "phone_number": "+250790987654",
+                "transaction_count": 1,
+                "last_transaction": "2024-01-15T13:15:00Z"
+            }
+        ]
+    },
+    {
+    "transactions": [
+        {
+        "transaction_id": 2,
+        "currency": "RWF",
+        "amount": 2000.00,
+        "formatted_amount": "2,000 RWF",
+        "transaction_type": "received",
+        "status": "completed",
+        "description": "Received 2000 RWF from +250790987654",
+        "timestamp": "2024-01-15T13:15:00Z",
+        "category": {
+            "id": 1,
+            "name": "Send Money",
+            "description": "Transfer money to another user",
+            "icon": "send-money"
+        },
+        "counterparty": {
+            "person_id": 3,
+            "name": "Jean Philippe Niyitegeka",
+            "phone_number": "+250790987654",
+            "is_favorite": true
+        },
+        "balance_impact": {
+            "previous_balance": 100000,
+            "new_balance": 102000,
+            "change": "+2000"
+        },
+        "metadata": {
+            "raw_message": "Received 2000 RWF from +250790987654",
+            "processed_at": "2024-01-15T13:15:00Z"
+        }
+        }
+    ],
+    "pagination": {
+        "current_page": 1,
+        "total_pages": 3,
+        "total_count": 25,
+        "per_page": 10
+    },
+    "summary": {
+        "total_sent": 15000.00,
+        "total_received": 8500.00,
+        "net_change": -6500.00
+    }
+    },{
+    "transaction": {
+        "transaction_id": 2,
+        "currency": "RWF",
+        "amount": 2000.00,
+        "formatted_amount": "2,000 RWF",
+        "status": "completed",
+        "created_at": "2024-01-15T13:15:00Z",
+        "updated_at": "2024-01-15T13:15:00Z",
+        "processing_time": "00:00:02",
+        
+        "transaction_type": {
+        "direction": "received",
+        "is_internal": true,
+        "requires_approval": false
+        },
+        
+        "user": {
+        "user_id": 1,
+        "name": "Mordecai Nayituriki",
+        "phone_number": "+250720123456",
+        "email": "mordecai@gmail.com"
+        },
+        
+        "counterparty": {
+        "person_id": 3,
+        "name": "Jean Philippe Niyitegeka",
+        "phone_number": "+250790987654",
+        "relationship": "contact",
+        "is_verified": true
+        },
+        
+        "category": {
+        "id": 1,
+        "name": "Send Money",
+        "description": "Transfer money to another user",
+        "icon": "send-money",
+        "color": "#4CAF50",
+        "fee_structure": {
+            "base_fee": 0,
+            "percentage_fee": 0.0,
+            "total_fee": 0
+        }
+        },
+        
+        "financial_impact": {
+        "previous_balance": 100000,
+        "transaction_amount": 2000.00,
+        "fees_charged": 0.00,
+        "new_balance": 102000,
+        "balance_change": "+2000.00"
+        },
+        
+        "system_info": {
+        "raw_message": "Received 2000 RWF from +250790987654",
+        "processing_logs": [
+            {
+            "log_id": 2,
+            "timestamp": "2024-01-15T13:15:00Z",
+            "type": "update_balance",
+            "status": "success",
+            "message": "Balance updated successfully"
+            }
+        ],
+        "trace_id": "txn_2_20240115_131500",
+        "processed_by": "system"
+        },
+        
+        "security": {
+        "verification_method": "sms_otp",
+        "ip_address": "192.168.1.1",
+        "device_info": "Mobile App v2.1.0",
+        "risk_score": "low"
+        }
+    }
+    }
+]

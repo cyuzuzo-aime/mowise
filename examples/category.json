@@ -1,0 +1,31 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Send Money",
+      "description": "Transfer money to another user",
+      "icon": "send-money",
+      "color": "#4CAF50",
+      "usage_stats": {
+        "frequency_count": 5,
+        "total_amount": 12500.00,
+        "percentage_of_transactions": 45.2,
+        "last_used": "2024-01-15T14:15:00Z",
+        "average_amount": 2500.00
+      },
+      "recent_transactions": [
+        {
+          "transaction_id": 6,
+          "amount": 2500.00,
+          "counterparty": "Diane Uwera",
+          "timestamp": "2024-01-15T14:15:00Z"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "most_used_category": "Send Money",
+    "highest_spend_category": "Electricity Bill",
+    "total_categories_used": 6
+  }
+}

@@ -1,0 +1,36 @@
+{
+    "user_id": 1,
+    "user_name": "Mordecai Nayituriki",
+    "email": "mordecai@gmail.com",
+    "phone_number": "+250720123456",
+    "balance": {
+        "amount": 102000,
+        "currency": "RWF",
+        "formatted": "102,000 RWF"
+    },
+    "account_info": {
+        "created_at": "2024-01-15T10:30:00Z",
+        "last_activity": "2024-01-15T14:45:30Z",
+        "status": "active"
+    },
+    "recent_transactions": [
+        {
+            "transaction_id": 2,
+            "type": "received",
+            "amount": 2000.00,
+            "currency": "RWF",
+            "description": "Received 2000 RWF from Jean Philippe",
+            "timestamp": "2024-01-15T13:15:00Z",
+            "status": "completed"
+        }
+    ],
+    "favorite_contacts": [
+        {
+            "person_id": 3,
+            "name": "Jean Philippe Niyitegeka",
+            "phone_number": "+250790987654",
+            "transaction_count": 1,
+            "last_transaction": "2024-01-15T13:15:00Z"
+        }
+    ]
+}
