@@ -141,7 +141,6 @@ INSERT INTO transactions (currency, rawMessage, status, category_id, receiver_id
         '*165*S*1200 RWF transferred to Lionel Karekezi (250780987654) from 22846752 at 2025-09-16 15:07:47 .Fee was: 100 RWF. New balance: 146700 RWF. To Buy Airtime or Bundles using MoMo, Dial *182*2*1# .*EN#',
         'completed', 1, 4, 2, 1200
     ),
-    -- More examples with the same amount of money, to all users, with appropriate new balance
     (
         'RWF',
         '*165*S*5000 RWF transferred to Mordecai Nayituriki (250720123456) from 22846752 at 2025-09-16 15:07:47 .Fee was: 100 RWF. New balance: 141600 RWF. To Buy Airtime or Bundles using MoMo, Dial *182*2*1# .*EN#',
