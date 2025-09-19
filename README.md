@@ -8,8 +8,23 @@ This repository contains both the independent backend and frontend folders (not 
 
 ## System architecture
 
+### Where to find
+
 We designed the high level system architecture using Miro
 [Link to the design](https://miro.com/app/board/uXjVJKEMv9c=/?share_link_id=664818185790)
+
+### Design rationale and justification
+
+The database design for Mowise is structured to prioritize efficient storage, relationships, and query performance. The core tables are Users, Transaction_Categories, and System Logs, with an additional junction table to link Users table to TransactionCategories.
+
+Users store all information about users including their names, phone number, and current balance. Transactions hold the details of each mobile money operation, including amount, timestamp, reference to the People table that keeps track of all people the transactions happened with, and more transaction trackers like currency and status. Each transaction references a Transaction_Category, which shows the type of that transaction, like ELECTRICITY, WATER, Money Transfer, or other commonly recognized types. This will help in better categorization and reporting.
+System_Logs record all events, including when a new transaction is recorded and whether it was successful or not. They also record when the balance of a user was updated, and the associated transaction. All these operations make auditing and history tracking fast and simple.
+
+Finally, we have a User_Transaction_Categories junction table that makes querying the analytic reports of a user’s transactions per category easy and fast.
+
+The design approach we used makes it easy to efficiently store all transactions, manage how information in different tables relate to each other, while allowing queries to happen faster.
+
+
 
 ## Project tracking
 
