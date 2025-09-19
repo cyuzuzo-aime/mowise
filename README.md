@@ -15,6 +15,8 @@ We designed the high level system architecture using Miro
 
 ### Design rationale and justification
 
+Click [here](https://lucid.app/lucidchart/9c09c617-becc-4d8f-9f93-ce407cd43702/edit?viewport_loc=-1832%2C-226%2C2563%2C1276%2C0_0&invitationId=inv_768b655d-291a-4e9c-b886-59ad4ece1c12) to see the ERD design on LucidChart (requires login)
+
 The database design for Mowise is structured to prioritize efficient storage, relationships, and query performance. The core tables are Users, Transaction_Categories, and System Logs, with an additional junction table to link Users table to TransactionCategories.
 
 Users store all information about users including their names, phone number, and current balance. Transactions hold the details of each mobile money operation, including amount, timestamp, reference to the People table that keeps track of all people the transactions happened with, and more transaction trackers like currency and status. Each transaction references a Transaction_Category, which shows the type of that transaction, like ELECTRICITY, WATER, Money Transfer, or other commonly recognized types. This will help in better categorization and reporting.
