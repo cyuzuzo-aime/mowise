@@ -12,14 +12,14 @@ import base64
 from datetime import datetime
 from urllib.parse import urlparse
 
-# ==================== USER DATA ====================
+
 USERS = {
     "admin": "admin123",
     "user": "password",
     "guest": "guest123"
 }
 
-# ==================== MODEL ====================
+
 JSON_FILE = "transactions.json"
 
 class TransactionModel:
@@ -117,7 +117,7 @@ class TransactionModel:
         return None
 
 
-# ==================== CONTROLLER ====================
+
 class TransactionController:
     """Controller for handling transaction business logic"""
     
@@ -185,7 +185,7 @@ class TransactionController:
             return {"error": "Invalid transaction ID"}
 
 
-# ==================== REQUEST HANDLER ====================
+
 class MoWiseHandler(BaseHTTPRequestHandler):
     """HTTP Request Handler for MoWise API with Basic Authentication"""
     
@@ -375,7 +375,7 @@ class MoWiseHandler(BaseHTTPRequestHandler):
         print(f"[{self.log_date_time_string()}] {format % args}")
 
 
-# ==================== SERVER ====================
+
 def run(server_class=HTTPServer, handler_class=MoWiseHandler, port=8000):
     """Start the MoWise API server"""
     server_address = ("", port)
