@@ -39,3 +39,4 @@ We are assigning and tracking tasks' progress using Notion
 - [Lionel Karekezi](https://github.com/karekezilionel)
 - [Mordecai Nayituriki](https://github.com/nmordecai)
 - [Jean Philippe Niyitegeka](https://github.com/jniyitegek)
+- [Karabo Niyibizi Divine](https://github.com/Karab-o)
