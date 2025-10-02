@@ -1,0 +1,216 @@
+import xml.etree.ElementTree as ET
+import json
+import re
+import time
+from datetime import datetime
+
+def extract_transaction_details(body):
+    """
+    Extract transaction details from SMS body.
+    
+    Returns:
+        Dictionary with transaction_type, amount, sender, receiver, timestamp
+    """
+    details = {
+        'transaction_type': None,
+        'amount': None,
+        'sender': None,
+        'receiver': None,
+        'timestamp': None,
+        'balance': None,
+        'fee': None
+    }
+    
+    if not body:
+        return details
+    
+    # Extract timestamp (format: YYYY-MM-DD HH:MM:SS)
+    timestamp_match = re.search(r'(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2})', body)
+    if timestamp_match:
+        details['timestamp'] = timestamp_match.group(1)
+    
+    # Extract amount (format: X,XXX RWF or XXXX RWF)
+    amount_match = re.search(r'([\d,]+)\s*RWF', body)
+    if amount_match:
+        details['amount'] = amount_match.group(1).replace(',', '')
+    
+    # Extract balance
+    balance_match = re.search(r'(?:new balance|NEW BALANCE)\s*:?\s*([\d,]+)\s*RWF', body, re.IGNORECASE)
+    if balance_match:
+        details['balance'] = balance_match.group(1).replace(',', '')
+    
+    # Extract fee
+    fee_match = re.search(r'[Ff]ee\s+was:?\s*([\d,]+)\s*RWF', body)
+    if fee_match:
+        details['fee'] = fee_match.group(1).replace(',', '')
+    
+    # Determine transaction type and extract sender/receiver
+    if 'received' in body.lower():
+        details['transaction_type'] = 'received'
+        # Extract sender name and phone
+        sender_match = re.search(r'from\s+([A-Za-z\s]+)\s*\(\*+(\d+)\)', body)
+        if sender_match:
+            details['sender'] = sender_match.group(1).strip()
+        details['receiver'] = 'You'
+        
+    elif 'payment' in body.lower() and 'to' in body.lower():
+        details['transaction_type'] = 'payment'
+        details['sender'] = 'You'
+        # Extract receiver name
+        receiver_match = re.search(r'to\s+([A-Za-z\s]+?)(?:\s+\d+|\s+with)', body)
+        if receiver_match:
+            details['receiver'] = receiver_match.group(1).strip()
+        elif 'Airtime' in body:
+            details['receiver'] = 'Airtime'
+            details['transaction_type'] = 'airtime_purchase'
+    
+    elif 'transferred to' in body.lower():
+        details['transaction_type'] = 'transfer'
+        details['sender'] = 'You'
+        # Extract receiver name and phone
+        receiver_match = re.search(r'to\s+([A-Za-z\s]+)\s*\((\d+)\)', body)
+        if receiver_match:
+            details['receiver'] = receiver_match.group(1).strip()
+    
+    elif 'deposit' in body.lower():
+        details['transaction_type'] = 'deposit'
+        details['sender'] = 'Bank/Cash'
+        details['receiver'] = 'You'
+    
+    return details
+
+def parse_sms_xml(xml_content):
+    """
+    Parse SMS backup XML and convert to structured JSON objects.
+    
+    Args:
+        xml_content: String containing the XML content
+    
+    Returns:
+        Dictionary with transaction IDs as keys and transaction details as values
+    """
+    root = ET.fromstring(xml_content)
+    
+    transactions = {}  # Changed from list to dictionary
+    
+    for idx, sms in enumerate(root.findall('sms'), start=1):
+        body = sms.get('body', '')
+        date = sms.get('date')
+        readable_date = sms.get('readable_date')
+        
+        # Extract transaction details from body
+        details = extract_transaction_details(body)
+        
+        # Create transaction object with only meaningful fields
+        transaction = {
+            'transaction_type': details['transaction_type'],
+            'amount': details['amount'],
+            'sender': details['sender'],
+            'receiver': details['receiver'],
+            'timestamp': details['timestamp'],
+            'balance': details['balance'],
+            'fee': details['fee'],
+            'date': readable_date,
+            'raw_body': body  # Keep for reference if needed
+        }
+        
+        transactions[idx] = transaction  # Store with ID as key
+    
+    return transactions
+
+def compare_search_efficiency(transactions_dict, num_iterations=1000):
+    """
+    Compare efficiency between linear search (list) and dictionary lookup.
+    """
+    # Convert dict to list for linear search simulation
+    transactions_list = [{'id': k, **v} for k, v in transactions_dict.items()]
+    
+    # Test with multiple IDs (middle, start, end)
+    test_ids = [1, len(transactions_dict)//2, len(transactions_dict)]
+    
+    print("\n" + "="*60)
+    print("EFFICIENCY COMPARISON")
+    print("="*60)
+    
+    for test_id in test_ids:
+        if test_id > len(transactions_dict):
+            continue
+            
+        # Linear search simulation
+        start = time.perf_counter()
+        for _ in range(num_iterations):
+            found = None
+            for tx in transactions_list:
+                if tx['id'] == test_id:
+                    found = tx
+                    break
+        linear_time = time.perf_counter() - start
+        
+        # Dictionary lookup
+        start = time.perf_counter()
+        for _ in range(num_iterations):
+            found = transactions_dict.get(test_id)
+        dict_time = time.perf_counter() - start
+        
+        print(f"\nSearching for ID {test_id} ({num_iterations} times):")
+        print(f"  Linear search: {linear_time:.6f}s")
+        print(f"  Dictionary lookup: {dict_time:.6f}s")
+        print(f"  Speedup: {linear_time/dict_time:.2f}x faster")
+    
+    print("\n" + "="*60)
+    print("REFLECTION:")
+    print("="*60)
+    print("Why dictionary lookup is faster:")
+    print("  • Dictionary: O(1) - computes hash, jumps directly to location")
+    print("  • Linear search: O(n) - checks each item until match found")
+    print("  • For 1000 records, dict checks 1 spot, linear checks avg 500")
+    print("\nAlternative data structures:")
+    print("  • B-Tree: Better for range queries (IDs 10-50)")
+    print("  • Trie: Efficient for prefix searching (sender names)")
+    print("  • Hash table with chaining: Handles hash collisions better")
+    print("="*60)
+
+# Example usage
+if __name__ == "__main__":
+    # Read your XML file
+    with open('modified_sms_v2.xml', 'r', encoding='utf-8') as f:
+        xml_content = f.read()
+    
+    # Parse transactions (now returns dictionary)
+    transactions = parse_sms_xml(xml_content)
+    
+    # Print summary
+    print(f"Parsed {len(transactions)} transactions\n")
+    
+    # Print first few transactions
+    print("Sample transactions:")
+    for i, (tx_id, tx) in enumerate(list(transactions.items())[:3]):
+        print(f"\nTransaction ID {tx_id}:")
+        print(f"  Type: {tx['transaction_type']}")
+        print(f"  Amount: {tx['amount']} RWF")
+        print(f"  From: {tx['sender']} → To: {tx['receiver']}")
+        print(f"  Balance: {tx['balance']} RWF")
+        print(f"  Date: {tx['date']}")
+    
+    # Demonstrate dictionary lookup
+    print("\n" + "-"*60)
+    print("DICTIONARY LOOKUP DEMO")
+    print("-"*60)
+    lookup_id = 15
+    if lookup_id in transactions:
+        tx = transactions[lookup_id]
+        print(f"Found transaction {lookup_id} instantly:")
+        print(f"  {tx['sender']} → {tx['receiver']}: {tx['amount']} RWF")
+    
+    # Compare efficiency (only if we have at least 20 records)
+    if len(transactions) >= 20:
+        compare_search_efficiency(transactions)
+    else:
+        print(f"\nNeed at least 20 records for efficiency comparison (have {len(transactions)})")
+    
+    # Save to JSON file (convert dict keys to strings for JSON)
+    json_output = json.dumps(transactions, indent=2, ensure_ascii=False)
+    with open('transactions.json', 'w', encoding='utf-8') as f:
+        f.write(json_output)
+    
+    print(f"\n✓ All transactions saved to transactions.json")
